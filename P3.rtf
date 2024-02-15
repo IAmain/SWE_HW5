@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 mport random\
+import string\
+\
+dictionary_words = ['password', '123456', 'qwerty', 'abc123'] \
+\
+accepted_passwords = []\
+\
+for i in range(40):\
+  password = ''.join(random.choices(string.ascii_letters + string.digits + string.punctuation, k=8))\
+  \
+  # Check dictionary words\
+  if password in dictionary_words:\
+    print(f"Password \{password\} is a dictionary word. Deleting..")\
+    continue \
+  \
+  # Check for any special symbol\
+  if not any(char in string.punctuation for char in password):\
+    print(f"Password \{password\} has no special symbols. Deleting..")\
+    continue\
+\
+  print(f"The password \{password\} accepted.")\
+\
+  # Archive the accepted passwords\
+  accepted_passwords.append(password)\
+\
+print(f"\\nGenerated \{len(accepted_passwords)\} accepted passwords:")\
+print(accepted_passwords)}
